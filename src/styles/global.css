@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 전역 스캔라인 효과 */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 50%
+  );
+  background-size: 100% 4px;
+  animation: moveScanline 10s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* 빈티지 컨테이너 스타일 */
+.vintage-container {
+  position: relative;
+  background-color: #FAFAFA;
+  color: #111111;
+  font-family: "Courier New", monospace;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* 그리드 패턴 */
+.grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(#000 1px, transparent 1px),
+                    linear-gradient(90deg, #000 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 레지스트레이션 마크 */
+.registration-marks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.registration-mark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #000;
+}
+
+.top-left-mark {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.top-right-mark {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.bottom-left-mark {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
+}
+
+.bottom-right-mark {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+}
+
+/* 인쇄 마크 */
+.print-mark {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #000;
+}
+
+.top-left {
+  top: 5px;
+  left: 5px;
+}
+
+.top-right {
+  top: 5px;
+  right: 5px;
+}
+
+.bottom-left {
+  bottom: 5px;
+  left: 5px;
+}
+
+.bottom-right {
+  bottom: 5px;
+  right: 5px;
+}
+
+/* 빈티지 버튼 */
+.vintage-button {
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.vintage-button:hover {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+/* 빈티지 테두리 */
+.vintage-border {
+  position: relative;
+  border: 1px solid #000;
+  padding: 1rem;
+  background-color: #FAFAFA;
+  z-index: 1;
+}
+
+/* 하프톤 효과 */
+.halftone-effect {
+  background-image: radial-gradient(#000 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.1;
+}
+
+/* 콘텐츠 영역 */
+.content-area {
+  position: relative;
+  z-index: 1;
+  background-color: #FAFAFA;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 반복 텍스트 */
+.repeating-text {
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: #FAFAFA;
+  padding: 0.25rem 0;
+}
+
+.repeating-text span {
+  display: inline-block;
+  animation: textScroll 20s linear infinite;
+}
+
+/* 애니메이션 */
+@keyframes textScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes fadeInCalendar {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
+@keyframes moveScanline {
+  from { top: 0%; }
+  to { top: 100%; }
+}
+
+/* 입력 필드 스타일 */
+input, textarea, select {
+  font-family: "Courier New", monospace;
+  border: 1px solid #000;
+  background-color: #FAFAFA;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-width: 2px;
+} 
